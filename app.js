@@ -2,6 +2,7 @@ const express = require('express');
 
 // express app
 const app = express();
+const PORT = process.env.port || 3000;
 
 // API setup
 const lib = require('lib')({token: 'tok_prod_yJp1jRKWRXRUSmCYNG142R28VCaMQT5kpZ3eHQiC84rxR6mhskkHJMrs9Y4FLtx9'});
@@ -13,8 +14,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // routes
-app.listen(3000);
-
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -48,3 +47,5 @@ app.get('/playernotfound', (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404');
 });
+
+app.listen(PORT, () => console.log(`App running on port ${PORT}`));
