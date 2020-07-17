@@ -2,7 +2,7 @@ const express = require('express');
 
 // express app
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 // API setup
 const lib = require('lib')({token: 'tok_prod_yJp1jRKWRXRUSmCYNG142R28VCaMQT5kpZ3eHQiC84rxR6mhskkHJMrs9Y4FLtx9'});
