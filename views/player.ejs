@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <title>Halo Stats | <%= player.gamertag %></title>
+</head>
+<body>
+
+  <main>
+
+    <%- include ('./partials/search.ejs') %>
+
+    <section class="player">
+      <h1><%= player.gamertag %></h1>
+      <h2><%= player.clantag %></h2>
+      <img src="<%= player.emblem %>" alt="player emblem">
+        <h3>Stats</h3>
+        <ul class="player-stats">
+          <li>Games Played: <span><%= player.gamesPlayed %></span></li>
+          <li>Time Played: <span><%= player.playtime %></span></li>
+          <li>K/D Ratio: <span><%= parseFloat(player.killDeathRatio).toFixed(2) %></span></li>
+          <li>Kills Per Game: <span><%= parseFloat(player.killsPerGame).toFixed(2) %></span></li>
+          <li>Deaths Per Game: <span><%= parseFloat(player.deathsPerGame).toFixed(2) %></span></li>
+          <li>Wins: <span><%= player.wins %></span></li>
+          <li>Losses: <span><%= player.losses %></span></li>
+          <li>Win Ratio: <span><%= parseFloat(player.winRatio).toFixed(2) %></span></li>
+        </ul>
+
+        <h4>Recent Form</h4>
+
+        <div class="form-container">
+          <% for(let i =0; i < form.length; i++) { %>
+            <% if(form[i] === -1){ %>
+              <span class="form-box win-box"></span>
+            <% } else { %>
+              <span class="form-box lose-box"></span>
+            <% } %>
+          <% } %>
+        </div>
+
+    </section>
+
+  </main>
+</body>
+</html>
