@@ -1,3 +1,4 @@
+const config = require('./config/config.json');
 const express = require('express');
 
 // express app
@@ -5,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // API setup
-const lib = require('lib')({token: 'tok_prod_yJp1jRKWRXRUSmCYNG142R28VCaMQT5kpZ3eHQiC84rxR6mhskkHJMrs9Y4FLtx9'});
+const lib = require('lib')({token: config.apiToken});
 
 // register view engine
 app.set('view engine', 'ejs');
